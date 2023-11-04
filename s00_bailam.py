@@ -29,13 +29,27 @@ get_name_in_email(['abb#ccc'])                            | ['ERROR invaid email
 get_name_in_email([None])                                 | ['ERROR invaid email']
 get_name_in_email([None, 'abb#ccc'])                      | ['ERROR invaid email', 'ERROR invaid email']
 """
+
 #endregion debai
 
 #region bailam
-def get_name_in_email(email_list):
-  return 'todo'
-  
 
-if __name__=='__main__':
+
+def get_name_in_email(email_list):
+  dc_email = []  # dia chi email
+  for i in range(len(email_list)):
+    ttk_email = email_list[i]  #phan tu trong mang email_list
+    if ttk_email is not None:
+      if ttk_email.find('@') >= 0:  #tim vi tri @ trong chuoi ky tu
+        ten_hople = ttk_email[0:ttk_email.index('@')]  # tach ten hop le trong dia chi mail
+        dc_email.append(ten_hople)
+      else:
+        dc_email.append('ERROR invaid email')
+    else:
+      dc_email.append('ERROR invaid email')
+  return dc_email
+ 
+
+if __name__ == '__main__':
   pass
 #endregion bailam
